@@ -241,3 +241,47 @@ services:
 After pushing your code to Github repository, run shell or configure Jenkins shell to build and run your containers:
 ```
 $ docker-compose up -d --build
+
+
+<img src="https://i.imgur.com/zCL5SQV.jpg">
+# React.js in a nutshell
+React.js is a component based JavaScript framework that offers you quite an amazing experience in writing front-end code. What does component based actually mean? It means that a page will be born from many different components that will create a well-built page. But why do I need these magical components? The answer is simple – speed and extra functionality. Page loading speed and resources boost is visible while using React.js and it is because of the main treasure that this framework gives us – when a component reloaded, used or its state is changed ([More about states](https://reactjs.org/docs/state-and-lifecycle.html)), React does not reload the page – it only reload that certain component or component tree. This does dramatically improve overall page performance and saves a lot of internet usage. Extra functionality is mentioned before – component states. Components in React.js are classes that have practically the same type of functionality as usual different programming languages would have – scoped functions, variables and, in this case, local data storage for itself called state. It is now even hard to say that React.js is very promising, because even know it amazes with what it has to offer, so the moral would be that nowadays it’s a must to get familiar with this framework if you want to become a better front-end developer.
+# Components that hide in our page
+Our project consists of few pages and even more components. When you first open up our website the index page is our create-a-plan component. This component can be divided into smaller components as navigation bar, containers and buttons that shows us more component-based modals like BMI (Body mass index calculator). Below I will show you how does our navigation bar component code looks like.
+```
+import React from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+import './Navbar.css';
+import logo from '../img/logo.png';
+
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { userLoggedIn:false };
+  }
+
+  render() {
+    return (
+        <nav id="sidebar">
+          <div className="sidebar-header">
+            <img alt="Nutri logo" src={logo} className="navLogo" />
+          </div>
+          <ul className="list-unstyled components">
+            <li>
+              <Link to="/">PAGRINDINIS</Link>
+            </li>
+            <li>
+              <Link to="/recipes">RECEPTAI</Link>
+            </li>
+            <li>
+              <Link to="/about">APIE NUTRI</Link>
+            </li>
+          </ul>
+        </nav>
+    );
+  }
+}
+
+export default Navbar;
+```
+Let me explain a bit what is written here. So the first thing is we are importing React and Router libraries to our component, because if we don't - we would not be able to use any React or Routing functions inside this scope, including creating a properly working component for later use. Routing is something similar to navigating through pages with help of links in normal HTML, but it gives us more functionality and speed to burst around our components. Later in this code we include our navigation style sheet and one image file. Then a class is defined. That is where our component is born. Inside this class we have an unused state, that was supposed to be included in later updates, but for now we shall leave it like this. To explain state in simple words - we have a mark if user is logged in and it is set to false by default. Our component can easily change this by adding some other sign-up or login components that will manipulate this state and set it to true whenever a user will be authenticated. The render method create the visible part of this component in our page. Everything inside the return braces will be rendered in the DOM. If you have any experience with HTML, the code might be recognized as it is similar. But don't trick yourselves because there are things that differ from our ancient HTML language. As you can see, the first <div> inside the <nav> tag has a class named "sidebar-header". But take a look how this we define a class in React - we use "className" instead of simple "class". Later we include a logo image inside a self-closing tag <img/>. The path to our image is defined with curly braces like this "{logo}". The word "logo" inside the curly braces is actually the name of our image import we have on top of this code. Then we have a simple <ul> list that brings us the navigation itself. Using the Router library, we are offered to include <Link> components that help us navigate through our component-based pages. In this case, we have three different pages. And in the end, we have to export this component, that later can be used when imported in other components or files.
