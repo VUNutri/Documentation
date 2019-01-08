@@ -241,6 +241,7 @@ services:
 After pushing your code to Github repository, run shell or configure Jenkins shell to build and run your containers:
 ```
 $ docker-compose up -d --build
+```
 
 
 <img src="https://i.imgur.com/zCL5SQV.jpg">
