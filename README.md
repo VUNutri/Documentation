@@ -62,6 +62,10 @@ $ mysql_secure_installation
 ```
 If you want the longer guide go ahead [here](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04)
 
+### Nutri SQL database hierarchy and tables
+Below you can see our project's database hierarchy and structure. This is how we store various things like meals, ingredients, meal extra information and etc.
+<img src="https://i.imgur.com/SjcERJ3.png">
+
 ## Go Golang!
 Why Golang? It runs fast! Really fast! This programming language is easy to write, easier to maintain. Its syntax is really close to C++ or C, so it won't be hard for you to learn how to write in this cool language. I can write a long poem about "Why Go Works?" but [this guy](https://medium.com/@kevalpatel2106/why-should-you-learn-go-f607681fad65) did it better. So go ahead and read it! If you want to lear to write in Go, [this tutorial](https://tour.golang.org/welcome/1) is best in the internet. I highly recommend it:
 
