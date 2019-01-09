@@ -216,7 +216,7 @@ less /var/log/auth.log
 ```
 3) Periodically check for Jenkins update
 ```
-sudo apt-get update
+sudo apt-get update && apt-get upgrade jenkins
 ```
 4) If you want to sleep super tight, proceed with performing external, unauthorized vulnerability scan on your own server instance.
 Use OpenVAS or Nessus scanners. This would show what attacker sees from the outside and give you concrete attack vectors. More on that:
