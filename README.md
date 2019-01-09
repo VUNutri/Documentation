@@ -293,11 +293,14 @@ export default Navbar;
 ```
 
 Let me explain a bit what is written here. So the first thing is we are importing React and Router libraries to our component, because if we don't - we would not be able to use any React or Routing functions inside this scope, including creating a properly working component for later use. Routing is something similar to navigating through pages with help of links in normal HTML, but it gives us more functionality and speed to burst around our components. Later in this code we include our navigation style sheet and one image file. Then a class is defined. That is where our component is born. Inside this class we have an unused state, that was supposed to be included in later updates, but for now we shall leave it like this. To explain state in simple words - we have a mark if user is logged in and it is set to false by default. Our component can easily change this by adding some other sign-up or login components that will manipulate this state and set it to true whenever a user will be authenticated. The render method create the visible part of this component in our page. Everything inside the return braces will be rendered in the DOM. If you have any experience with HTML, the code might be recognized as it is similar. But don't trick yourselves because there are things that differ from our ancient HTML language. As you can see, the first "div" inside the "nav" tag has a class named "sidebar-header". But take a look how this we define a class in React - we use "className" instead of simple "class". Later we include a logo image inside a self-closing tag "img". The path to our image is defined with curly braces like this "{logo}". The word "logo" inside the curly braces is actually the name of our image import we have on top of this code. Then we have a simple "ul" list that brings us the navigation itself. Using the Router library, we are offered to include <Link> components that help us navigate through our component-based pages. In this case, we have three different pages. And in the end, we have to export this component, that later can be used when imported in other components or files.
-## Calories calculator
+
+# Calories calculator
 One of our project's components is calories calculator. It's purpose is to count calories that user needs to consume to stay the same size per day. This calories number is calculating by multiplying BMR (Basal metabolic rate)  which is the rate of energy expenditure per unit time at rest and user's physical activity.
 
 To change states of data, that is needed to calories calculator, we use functions:
+
 ```
+
 heightChange(e) {
 this.setState({ height: e.target.value });
 e.preventDefault();
@@ -321,6 +324,7 @@ activeChange(e) {
 this.setState({ active: e.target.value });
 e.preventDefault();
 }
+
 ```
 
 **Revised Harris-Benedict Equation** is used to calculate BMR.
@@ -328,7 +332,9 @@ For men: BMR = 13.397xWeight + 4.799xHeight - 5.677xAge + 88.362
 For women: BMR = 9.247xWeight + 3.098xHeight - 4.330xAge + 447.593
 
 After that BMR is multiplied by number, that indicates users physical activity.
+
 ```
+
 caloriesCalculator() {
 
 const maleBMR = (13.397 * this.state.weight) + (4.799 * this.state.height) - (5.677 * this.state.age) + 88.362;
@@ -383,9 +389,13 @@ this.setState({ calories: Math.round(calories) });
 }
 return calories;
 }
+
 ```
+
 Finally, to calculate everything and show it to user is used submit function:
+
 ```
+
 submit(e) {
 e.preventDefault();
 const cals = Math.round(this.caloriesCalculator());
@@ -393,28 +403,41 @@ this.props.handler({
 caloriesCount: cals
 });
 }
+
 ```
+
 # How to use Nutri
 1) Open home page.
 <img src="https://i.imgur.com/NZOpbDI.png">
+
 2) In the right side of the page press the button called "Kalorijų skaičiuoklė".
+
 3) When modal window shows up, enter your height, weight and age and also choose your gender and physical activity. Then press button "Skaičiuoti" and it will count how much calories you need to consume to stay the same size per day.
 <img src="https://i.imgur.com/zQSk4NL.png">
+
 4) Close modal window and in slider "Dienos" choose, how much days do you want your menu to last.
+
 5) After that, in the next slider "Valgymų kartai" choose, how much times in a day you want to eat. Whenever you change this slider, the menu regenerates on every slider or input change.
 <img src="https://i.imgur.com/VO6rVRS.png">
+
 6) Bellow all sliders, in an input named "Produktai, kurių neįtraukti į maisto racioną" you can write products, that you don't want to have in your meals. In example, this input lets you prevent from getting any allergic products in your meal plan. On input, a dropdown list will show up, and you can select only those products, that are stored in our database. 
 <img src="https://i.imgur.com/JNPqGkI.png">
 <img src="https://i.imgur.com/sx2c8d5.png">
+
 7) In middle of the screen you can see generated meals in each day. Bellow the meal's name, there is time that is needed to prepare this meal.
+
 8) If you want to see the recipe, or products that meal requires, you can open meal's modal window by clicking info icon on the selected meal, which is on it's left side. Also in that window you can see calories, proteins and carbohydrates that your chosen meal has.
 <img src="https://i.imgur.com/Gn3i6Zd.png">
+
 9) If you don't like some of meals, you can delete them by pressing trash bin icon on the selected meal, which is on it's right side.
+
 10) If you want to regenerate some of meals, you can do it, by clicking on refresh icon on the selected meal, which is on it's right side. If you want to regenerate all day's meals, you can do it, by clicking refresh icon on the top of all meals, next to button "Produktų krepšelis".
+
 11) When you have your meals checked, you can see products, that you will need,  and their quantities and prices by clicking on button "Produktų krepšelis".
+
 12) Before the products are generated in a shopping cart format table, there is an amazing preloader to entertain you until the moment of greatness appears.
 <img src="https://i.imgur.com/HnPAuBx.png">
-12) Download your product list, and start preparing your meals.
+13) Download your product list, and start preparing your meals.
 
 # Install this package in your local machine
 
