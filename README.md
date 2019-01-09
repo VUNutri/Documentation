@@ -2,7 +2,7 @@
 <img src="https://i.imgur.com/twMrvzK.png" width="100">  
 
 ## Introduction
-What is Nutri? Nutri is a smart nutrition planning tool designed to help users to eat heatlhier and cheapier. This project was made during Vilnius University Bachelor's degree's of Information Systems Engineering course of Computer's Architecture course. This guide is designed to help you, the reader, to try to make something simillar yourself. This project covers:
+What is Nutri? Nutri is a smart nutrition planning tool designed to help users to eat healthier and cheaper. This project was made during Vilnius University Bachelor's degree's of Information Systems Engineering course of Computer's Architecture course. This guide is designed to help you, the reader, to try to make something similar yourself. This project covers:
 * Responsive web design technologies
 * React.js framework
 * Mysql databases
@@ -14,7 +14,7 @@ What is Nutri? Nutri is a smart nutrition planning tool designed to help users t
 So go ahead and make something cool too!
 
 ## Front-End crash course
-This crash course is designed for developers, who want to learn how to start coding web-based apps. The course covers topics from basic HTML to React.js JavaScript library. If you are familliar with some topics, feel free to skip them and go to more advanced ones.
+This crash course is designed for developers, who want to learn how to start coding web-based apps. The course covers topics from basic HTML to React.js JavaScript library. If you are familiar with some topics, feel free to skip them and go to more advanced ones.
 
 Before you start, don't forget to pick a text editor of your choice. There are plenty of good ones but I suggest you to grab my favorite - [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -45,7 +45,7 @@ After you completed this crash course feel free to build whatever you want. If y
 * [Your portfolio site](https://medium.com/technoetics/create-a-developer-portfolio-using-reactjs-d34ea1bfb18e)
 
 ## Mysql Databases
-This paragraph is wiretten to make you familiar with SQL language and Mysql stuff.
+This paragraph is writen to make you familiar with SQL language and Mysql stuff.
 
 ### What is SQL?
 SQL (pronounced "ess-que-el") stands for Structured Query Language. SQL is used to communicate with a database. According to ANSI (American National Standards Institute), it is the standard language for relational database management systems. SQL statements are used to perform tasks such as update data on a database, or retrieve data from a database. Some common relational database management systems that use SQL are: Oracle, Sybase, Microsoft SQL Server, Access, Ingres, etc. Although most database systems use SQL, most of them also have their own additional proprietary extensions that are usually only used on their system. However, the standard SQL commands such as "Select", "Insert", "Update", "Delete", "Create", and "Drop" can be used to accomplish almost everything that one needs to do with a database.
@@ -94,7 +94,7 @@ ssh -i ~/{key_location}/{key_filename}.pem ubuntu@{Public DNS (IPv4)}
 
 ## Meet the Docker 🐋!
 ---
-Docker is a magical program that performs operating-system-level virtualization, also known as "containerization". It keeps your development enviroment clean and makes code deployment easy. But before the fun begins, you have to install it:
+Docker is a magical program that performs operating-system-level virtualization, also known as "containerization". It keeps your development environment clean and makes code deployment easy. But before the fun begins, you have to install it:
 
 1) Update the apt package index:
 ```
@@ -181,7 +181,7 @@ $ vi /var/jenkins_home/secrets/initialAdminPassword
 ```
 
 Now you have to open port 8080 of your AWS instance. You have to navigate to Security Group of your instance and add custom TCP rule:
-![tcp](https://i.stack.imgur.com/qQZ5e.png) 
+![tcp](https://i.stack.imgur.com/qQZ5e.png)
 
 ## Putting it all together...
 ---
@@ -192,7 +192,7 @@ After you have everything installed, you can try to set up Github integration.
 ![first step](https://valuebound.com/sites/default/files/inline-images/Image_3.png)
 2) Search Github Plugin in the Available tab then click on Download now and install after the restart.
 ![2](https://1554227851.rsc.cdn77.org/sites/default/files/inline-images/image%203_0.jpg)
-3) To Create a new task for Jenkins, click on “New Item” then enter an item name that is suitable for your project and select Freestyle project. Now click Ok. 
+3) To Create a new task for Jenkins, click on “New Item” then enter an item name that is suitable for your project and select Freestyle project. Now click Ok.
 ![3](https://1554227851.rsc.cdn77.org/sites/default/files/inline-images/image%204.jpg)
 4) Select the GitHub project checkbox and set the Project URL to point to your GitHub Repository.
 ![4](https://1554227851.rsc.cdn77.org/sites/default/files/inline-images/image%205.jpg)
@@ -202,8 +202,29 @@ After you have everything installed, you can try to set up Github integration.
 ![6](https://1554227851.rsc.cdn77.org/sites/default/files/inline-images/image%207.jpg)
 7) At the end, execute Shell. When the configuration is done, click on save button.
 ![7](https://valuebound.com/sites/default/files/inline-images/Image_9.png)
-8) Go to your Github repository settings and set up a webhook for Jenkins. The adress should be: {your DNS}:8080/github-webhook
+8) Go to your Github repository settings and set up a webhook for Jenkins. The address should be: {your DNS}:8080/github-webhook
 ![8](https://valuebound.com/sites/default/files/inline-images/Image_11_1.png)
+
+## Security considerations
+
+As Amazon AWS instance is exposed to the internet and Internet Scanners are scanning throughout range of all IPs, it is expected that our Jenkins service running under port 8080 gets inbound connection every 5 seconds. In most of the cases, third party that initiated connection, is a malicious actor checking which ports are open and what services are running (ref. [Reconnaissance phase of Kill Chain](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)). To avoid any future malfunctions and compromises of whole infrastructure it is expected to harden the server.
+
+1) Do not enable access via SSH access using credentials (use existing PKI authentication option), especially if you decided to use different cloud provider.
+2) Establish log review routine. Review auth logs under "/var/log/auth.log".
+'''
+less /var/log/auth.log
+'''
+3) Periodically check for Jenkins update
+'''
+sudo apt-get update
+'''
+4) If you want to sleep super tight, proceed with performing external, unauthorized vulnerability scan on your own server instance.
+Use OpenVAS or Nessus scanners. This would show what attacker sees from the outside and give you concrete attack vectors. More on that:
+[How to perform scan using OpenVAS](https://www.kali.org/tutorials/configuring-and-tuning-openvas-in-kali-linux/)
+[How to perform scan using Nexpose](https://null-byte.wonderhowto.com/how-to/hack-like-pro-using-nexpose-scan-for-network-system-vulnerabilities-0157767/)
+[How to perform scan using Nessus](https://lifehacker.com/how-to-use-nessus-to-scan-a-network-for-vulnerabilities-1788261156)
+
+5) Use strong Jenkins credentials as they could be cracked using brute-force method.
 
 ## Node.js example
 
@@ -370,7 +391,7 @@ this.setState({ calories: Math.round(calories) });
 }
 }
 else if (this.state.gender === 'female') {
-if (this.state.active === 'passive') 
+if (this.state.active === 'passive')
 calories = femaleBMR * 1.2;
 this.setState({ calories: Math.round(calories) });
 }
@@ -424,7 +445,7 @@ caloriesCount: cals
 5) After that, in the next slider "Valgymų kartai" choose, how much times in a day you want to eat. Whenever you change this slider, the menu regenerates on every slider or input change.
 <img src="https://i.imgur.com/VO6rVRS.png">
 
-6) Bellow all sliders, in an input named "Produktai, kurių neįtraukti į maisto racioną" you can write products, that you don't want to have in your meals. In example, this input lets you prevent from getting any allergic products in your meal plan. On input, a dropdown list will show up, and you can select only those products, that are stored in our database. 
+6) Bellow all sliders, in an input named "Produktai, kurių neįtraukti į maisto racioną" you can write products, that you don't want to have in your meals. In example, this input lets you prevent from getting any allergic products in your meal plan. On input, a dropdown list will show up, and you can select only those products, that are stored in our database.
 <img src="https://i.imgur.com/JNPqGkI.png">
 <img src="https://i.imgur.com/sx2c8d5.png">
 
@@ -449,7 +470,7 @@ To install and be able to use our project for well-being purposes you need to fo
 
 1) Install Node.js and Git bash command line interfaces.
 2) Open terminal with git bash command prompt and in navigate into your preffered folder that you want to install this package in.
-3) Run these commands: 
+3) Run these commands:
 ```
 git clone https://github.com/VUNutri/APP.git
 cd APP
