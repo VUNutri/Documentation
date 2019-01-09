@@ -396,22 +396,40 @@ caloriesCount: cals
 ```
 # How to use Nutri
 1) Open home page.
-[Home page](https://i.imgur.com/NZOpbDI.png)
+<img src="https://i.imgur.com/NZOpbDI.png">
 2) In the right side of the page press the button called "Kalorijų skaičiuoklė".
 3) When modal window shows up, enter your height, weight and age and also choose your gender and physical activity. Then press button "Skaičiuoti" and it will count how much calories you need to consume to stay the same size per day.
-[BMI Calculator modal](https://i.imgur.com/zQSk4NL.png)
+<img src="https://i.imgur.com/zQSk4NL.png">
 4) Close modal window and in slider "Dienos" choose, how much days do you want your menu to last.
 5) After that, in the next slider "Valgymų kartai" choose, how much times in a day you want to eat. Whenever you change this slider, the menu regenerates on every slider or input change.
-[How many times you eat per day slider](https://i.imgur.com/VO6rVRS.png)
+<img src="https://i.imgur.com/VO6rVRS.png">
 6) Bellow all sliders, in an input named "Produktai, kurių neįtraukti į maisto racioną" you can write products, that you don't want to have in your meals. In example, this input lets you prevent from getting any allergic products in your meal plan. On input, a dropdown list will show up, and you can select only those products, that are stored in our database. 
-[Dropdown](https://i.imgur.com/JNPqGkI.png)
-[Dropdown](https://i.imgur.com/sx2c8d5.png)
+<img src="https://i.imgur.com/JNPqGkI.png">
+<img src="https://i.imgur.com/sx2c8d5.png">
 7) In middle of the screen you can see generated meals in each day. Bellow the meal's name, there is time that is needed to prepare this meal.
 8) If you want to see the recipe, or products that meal requires, you can open meal's modal window by clicking info icon on the selected meal, which is on it's left side. Also in that window you can see calories, proteins and carbohydrates that your chosen meal has.
-[Meal page](https://i.imgur.com/Gn3i6Zd.png)
+<img src="https://i.imgur.com/Gn3i6Zd.png">
 9) If you don't like some of meals, you can delete them by pressing trash bin icon on the selected meal, which is on it's right side.
 10) If you want to regenerate some of meals, you can do it, by clicking on refresh icon on the selected meal, which is on it's right side. If you want to regenerate all day's meals, you can do it, by clicking refresh icon on the top of all meals, next to button "Produktų krepšelis".
 11) When you have your meals checked, you can see products, that you will need,  and their quantities and prices by clicking on button "Produktų krepšelis".
 12) Before the products are generated in a shopping cart format table, there is an amazing preloader to entertain you until the moment of greatness appears.
-[BEST PRELOADER YET](https://i.imgur.com/HnPAuBx.png)
+<img src="https://i.imgur.com/HnPAuBx.png">
 12) Download your product list, and start preparing your meals.
+
+# Install this package in your local machine
+
+To install and be able to use our project for well-being purposes you need to follow these few simple steps to get going.
+
+1) Install Node.js and Git bash command line interfaces.
+2) Open terminal with git bash command prompt and in navigate into your preffered folder that you want to install this package in.
+3) Run these commands: 
+```
+git clone https://github.com/VUNutri/APP.git
+cd APP
+npm install
+```
+4) Now you have set up our package and installed all dependecy packages, that are needed in order to be able to work with this project. Now to run it, you need to enter this simple command.
+```
+npm start
+```
+5) Thats it! You have now successfully began to emulate this project and your browser should open this page after this action.
