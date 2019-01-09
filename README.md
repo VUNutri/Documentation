@@ -314,3 +314,21 @@ Let me explain a bit what is written here. So the first thing is we are importin
 12) Before the products are generated in a shopping cart format table, there is an amazing preloader to entertain you until the moment of greatness appears.
 <img src="https://i.imgur.com/HnPAuBx.png">
 12) Download your product list, and start preparing your meals.
+
+# Install this package in your local machine
+
+To install and be able to use our project for well-being purposes you need to follow these few simple steps to get going.
+
+1) Install Node.js and Git bash command line interfaces.
+2) Open terminal with git bash command prompt and in navigate into your preffered folder that you want to install this package in.
+3) Run these commands: 
+```
+git clone https://github.com/VUNutri/APP.git
+cd APP
+npm install
+```
+4) Now you have set up our package and installed all dependecy packages, that are needed in order to be able to work with this project. Now to run it, you need to enter this simple command.
+```
+npm start
+```
+5) Thats it! You have now successfully began to emulate this project and your browser should open this page after this action.
