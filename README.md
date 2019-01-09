@@ -293,6 +293,107 @@ export default Navbar;
 ```
 
 Let me explain a bit what is written here. So the first thing is we are importing React and Router libraries to our component, because if we don't - we would not be able to use any React or Routing functions inside this scope, including creating a properly working component for later use. Routing is something similar to navigating through pages with help of links in normal HTML, but it gives us more functionality and speed to burst around our components. Later in this code we include our navigation style sheet and one image file. Then a class is defined. That is where our component is born. Inside this class we have an unused state, that was supposed to be included in later updates, but for now we shall leave it like this. To explain state in simple words - we have a mark if user is logged in and it is set to false by default. Our component can easily change this by adding some other sign-up or login components that will manipulate this state and set it to true whenever a user will be authenticated. The render method create the visible part of this component in our page. Everything inside the return braces will be rendered in the DOM. If you have any experience with HTML, the code might be recognized as it is similar. But don't trick yourselves because there are things that differ from our ancient HTML language. As you can see, the first "div" inside the "nav" tag has a class named "sidebar-header". But take a look how this we define a class in React - we use "className" instead of simple "class". Later we include a logo image inside a self-closing tag "img". The path to our image is defined with curly braces like this "{logo}". The word "logo" inside the curly braces is actually the name of our image import we have on top of this code. Then we have a simple "ul" list that brings us the navigation itself. Using the Router library, we are offered to include <Link> components that help us navigate through our component-based pages. In this case, we have three different pages. And in the end, we have to export this component, that later can be used when imported in other components or files.
+## Calories calculator
+One of our project's components is calories calculator. It's purpose is to count calories that user needs to consume to stay the same size per day. This calories number is calculating by multiplying BMR (Basal metabolic rate)  which is the rate of energy expenditure per unit time at rest and user's physical activity.
+
+To change states of data, that is needed to calories calculator, we use functions:
+```
+heightChange(e) {
+this.setState({ height: e.target.value });
+e.preventDefault();
+}
+
+weightChange(e) {
+this.setState({ weight: e.target.value });
+e.preventDefault();
+}
+
+ageChange(e) {
+this.setState({ age: e.target.value });
+e.preventDefault();
+}
+
+genderChange(e) {
+this.setState({ gender: e.target.value });
+}
+
+activeChange(e) {
+this.setState({ active: e.target.value });
+e.preventDefault();
+}
+```
+
+**Revised Harris-Benedict Equation** is used to calculate BMR.
+For men: BMR = 13.397xWeight + 4.799xHeight - 5.677xAge + 88.362
+For women: BMR = 9.247xWeight + 3.098xHeight - 4.330xAge + 447.593
+
+After that BMR is multiplied by number, that indicates users physical activity.
+```
+caloriesCalculator() {
+
+const maleBMR = (13.397 * this.state.weight) + (4.799 * this.state.height) - (5.677 * this.state.age) + 88.362;
+
+const femaleBMR = (9.247 * this.state.weight) + (3.098 * this.state.height) - (4.330 * this.state.age) + 447.593;
+
+let calories;
+
+if (this.state.gender === 'male') {
+if (this.state.active === 'passive') {
+calories = maleBMR * 1.2;
+this.setState({ calories: Math.round(calories) });
+}
+else if (this.state.active === 'mild') {
+calories = maleBMR * 1.375;
+this.setState({ calories: Math.round(calories) });
+}
+else if (this.state.active === 'moderate') {
+calories = maleBMR * 1.55;
+this.setState({ calories: Math.round(calories) });
+}
+else if (this.state.active === 'heavy') {
+calories = maleBMR * 1.7;
+this.setState({ calories: Math.round(calories) });
+}
+else if (this.state.active === 'extreme') {
+calories = maleBMR * 1.9;
+this.setState({ calories: Math.round(calories) });
+}
+}
+else if (this.state.gender === 'female') {
+if (this.state.active === 'passive') 
+calories = femaleBMR * 1.2;
+this.setState({ calories: Math.round(calories) });
+}
+else if (this.state.active === 'mild') {
+calories = femaleBMR * 1.375;
+this.setState({ calories: Math.round(calories) });
+}
+else if (this.state.active === 'moderate') {
+calories = femaleBMR * 1.55;
+this.setState({ calories: Math.round(calories) });
+}
+else if (this.state.active === 'heavy') {
+calories = femaleBMR * 1.7;
+this.setState({ calories: Math.round(calories) });
+}
+else if (this.state.active === 'extreme') {
+calories = femaleBMR * 1.9;
+this.setState({ calories: Math.round(calories) });
+}
+}
+return calories;
+}
+```
+Finally, to calculate everything and show it to user is used submit function:
+```
+submit(e) {
+e.preventDefault();
+const cals = Math.round(this.caloriesCalculator());
+this.props.handler({
+caloriesCount: cals
+});
+}
+```
 # How to use Nutri
 1) Open home page.
 [Home page](https://i.imgur.com/NZOpbDI.png)
