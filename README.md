@@ -211,13 +211,13 @@ As Amazon AWS instance is exposed to the internet and Internet Scanners are scan
 
 1) Do not enable access via SSH access using credentials (use existing PKI authentication option), especially if you decided to use different cloud provider.
 2) Establish log review routine. Review auth logs under "/var/log/auth.log".
-'''
+```
 less /var/log/auth.log
-'''
+```
 3) Periodically check for Jenkins update
-'''
+```
 sudo apt-get update
-'''
+```
 4) If you want to sleep super tight, proceed with performing external, unauthorized vulnerability scan on your own server instance.
 Use OpenVAS or Nessus scanners. This would show what attacker sees from the outside and give you concrete attack vectors. More on that:
 [How to perform scan using OpenVAS](https://www.kali.org/tutorials/configuring-and-tuning-openvas-in-kali-linux/)
